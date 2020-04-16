@@ -6,6 +6,12 @@ RSpec.describe Organization, type: :model do
             organization = Organization.new
             expect(organization).to respond_to(:tickets, :users)
         end
+
+        it 'should have and belong to many resource categories' do
+            organization = Organization.new
+            expect(organization).to respond_to(:resource_categories)
+        end
+        
     end
 
 end
