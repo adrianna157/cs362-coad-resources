@@ -11,7 +11,12 @@ RSpec.describe Organization, type: :model do
             organization = Organization.new
             expect(organization).to respond_to(:resource_categories)
         end
-        
+
+        it 'has and email' do
+            user = User.new
+            expect(user).to respond_to(:email)
+        end
+
     end
 
 end
