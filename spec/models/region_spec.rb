@@ -9,10 +9,12 @@ RSpec.describe Region, type: :model do
     end
   end
 
-
-  # Properties / Attributes
-
-  # Relationship
+  describe "relationships" do
+    it "has many tickets" do
+      region = Region.new
+      expect(region).to have_many(:tickets)
+    end
+  end
 
   # Validations
 
