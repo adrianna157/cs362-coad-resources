@@ -28,6 +28,14 @@ RSpec.describe Region, type: :model do
             expect(region).to validate_uniqueness_of(:name, case_sensitive: false)
         end
     end
+
+    describe "to_s method" do
+        it "has a string that is a name"do
+        expected_name = 'FAKE'
+        region = Region.new(name: expeccted_name)
+        expect(region.to_s).to eq(excpected_name)
+    end
+    
         end
 
 
