@@ -32,10 +32,16 @@ RSpec.describe Region, type: :model do
     describe "to_s method" do
         it "has a string that is a name"do
         expected_name = 'FAKE'
-        region = Region.new(name: expeccted_name)
+        region = Region.new(name: expected_name)
         expect(region.to_s).to eq(excpected_name)
     end
-    
+     describe "unspecified local method" do
+        it "names are unspecified"do
+        unspecified_name = 'Unspecified'
+        region = Region.new(name: unspecified)
+        expect(region.unspecified).to eq(unspecified_name)
+    end
+
         end
 
 
