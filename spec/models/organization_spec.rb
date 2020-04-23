@@ -1,22 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
-    describe 'relationship' do
-        it 'should have many tickets and users' do
-            organization = Organization.new
-            expect(organization).to respond_to(:tickets, :users)
-        end
 
-        it 'should have and belong to many resource categories' do
-            organization = Organization.new
-            expect(organization).to respond_to(:resource_categories)
-        end
+    let (:organization) { Organization.new() }
 
-        it 'has and email' do
-            user = User.new
-            expect(user).to respond_to(:email)
+    describe 'attributes' do
+        it 'has a name' do
+            expect(organization).to respond_to(:name)
         end
-
+        it 'has a phone' do
+            expect(organization).to respond_to(:phone)
+        end
+        it 'has a email' do
+            expect(organization).to respond_to(:email)
+        end
+        it 'has a status' do
+            expect(organization).to respond_to(:status)
+        end
+        it 'has a primary name' do
+            expect(organization).to respond_to(:primary_name)
+        end
+        it 'has a secondary name' do
+            expect(organization).to respond_to(:secondary_name)
+        end
+        it 'has a secondary phone' do
+            expect(organization).to respond_to(:secondary_phone)
+        end
     end
 
+    describe 'relationship' do
+        it 'has many tickets' do
+            expect(organization).to have_many(:tickets)
+        end
+
+        it 'has many users' do
+            expect(organization).to have_many(:users)
+        end
+
+        it 'has and belongs to many resource categories' do
+            expect(organization).to have_and_belong_to_many(:resource_categories)
+        end
+    end
+
+    # describe 'validation' do
+    #     it 
+    # end
 end
