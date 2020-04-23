@@ -6,6 +6,15 @@ RSpec.describe Region, type: :model do
         region = Region.new
         expect(region).to respond_to(:name)
     end
+
+    describe "relationships"do
+        it "has many tickets" do
+            region = Region.new
+            expect(region).to have_many(:tickets)
+        end
+    end
+
+    
 end
 
 end
