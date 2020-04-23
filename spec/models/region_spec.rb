@@ -6,6 +6,7 @@ RSpec.describe Region, type: :model do
         region = Region.new
         expect(region).to respond_to(:name)
     end
+end
 
     describe "relationships"do
         it "has many tickets" do
@@ -35,17 +36,14 @@ RSpec.describe Region, type: :model do
         region = Region.new(name: expected_name)
         expect(region.to_s).to eq(excpected_name)
     end
+end
      describe "unspecified local method" do
         it "names are unspecified"do
         unspecified_name = 'Unspecified'
         region = Region.new(name: unspecified)
         expect(region.unspecified).to eq(unspecified_name)
-    end
-
-        end
-
-
-
+     end
+end
 end
 
-end
+
