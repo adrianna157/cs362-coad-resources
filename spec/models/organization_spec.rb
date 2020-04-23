@@ -44,5 +44,23 @@ RSpec.describe Organization, type: :model do
         it 'validates email' do
             expect(organization).to validate_presence_of(:email)
         end
+        it 'validates name' do
+            expect(organization).to validate_presence_of(:name)
+        end
+        it 'validates phone' do
+            expect(organization).to validate_presence_of(:phone)
+        end
+        it 'validates status' do
+            expect(organization).to validate_presence_of(:status)
+        end
+        it 'validates primary_name' do
+            expect(organization).to validate_presence_of(:primary_name)
+        end
+        it 'validates secondary name' do
+            expect(organization).to validate_presence_of(:secondary_name)
+        end
+        it 'validates secondary phone' do
+            expect(organization).to validate_presence_of(:secondary_phone)
+        end
     end
 end
