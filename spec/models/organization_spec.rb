@@ -48,29 +48,20 @@ RSpec.describe Organization, type: :model do
             expect(organization).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
         end
         it 'validates format of email' do
-            organization = Organization.new(
-                email: "valid@example.com",
-                name: 'FAKE',
-                phone: '123-456-7890',
-                status: 'submitted',
-                primary_name: 'FAKE',
-                secondary_name: 'FAKE',
-                secondary_phone: '123-456-7890')
-            expect(organization).to be_valid
-            organization.email = 'INVALID'
-            expect(organization).to_not be_valid
             expect(organization).to allow_value('valid@example.com').for(:email)
-            expect(organization).to_not allow_value('INVALID').for(:email)
-            expect(organization).to_not allow_value('invalid.com').for(:email)
+            expect(organization).to_not allow_value('invalid.com', '@invalid.com', 'INVALID', 'invalid@fake').for(:email)
         end 
-        # it 'validates uniqueness of email' do
-        #     expect(organization).to 
-        # end
+        it 'validates uniqueness of email' do
+            expect(organization).to validate_uniqueness_of(:email).case_insensitive
+        end
         it 'validates presence of name' do
             expect(organization).to validate_presence_of(:name)
         end
         it 'validates length of name' do
             expect(organization).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
+        end
+        it 'validates uniqueness of name' do
+            expect(organization).to validate_uniqueness_of(:name).case_insensitive
         end
         it 'validates presence of phone' do
             expect(organization).to validate_presence_of(:phone)
@@ -87,11 +78,13 @@ RSpec.describe Organization, type: :model do
         it 'validates presence of secondary phone' do
             expect(organization).to validate_presence_of(:secondary_phone)
         end
-
-
-        # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-        # validates :email, format: { with: VALID_EMAIL_REGEX }
-        # validates_uniqueness_of :email, case_sensitive: false
-        # validates_uniqueness_of :name, case_sensitive: false
     end
+
+    describe 'method' do
+        it "has a string that is a name" do
+            expected_name = 'FAKE'
+            organization = Organization.new(name: expected_name)
+            expect(organization.to_s).to eq(expected_name)
+        end
+    end 
 end
