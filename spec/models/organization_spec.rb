@@ -92,5 +92,8 @@ RSpec.describe Organization, type: :model do
         it 'has a reject method' do
             expect(organization.reject).to be_truthy
         end
+        it 'has a set default status method' do
+            expect(organization.set_default_status).to be_truthy
+        end
     end 
 end
