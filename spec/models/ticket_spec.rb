@@ -34,7 +34,11 @@ RSpec.describe Ticket, type: :model do
     it "validates presences the length of a name" do
             ticket = Ticket.new
             expect(ticket).to validate_length_of(:description).is_at_most(1020).on(:create)
-        end   
+        end
+    it "validates" do
+            ticket = Ticket.new
+            expect(ticket).to validates_plausible_phone :phone_number, presence: true
+        end     
          
    end      
 end
