@@ -16,11 +16,9 @@ gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sassc-rails'
-gem 'sqlite3', group: :development
-gem 'pg', '0.18.1', group: :production
+gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'rails_12factor', group: :production
 
 
 group :development, :test do
