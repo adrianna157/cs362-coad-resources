@@ -22,11 +22,11 @@ end
         end
         it "validates presences the length of a name" do
             region = Region.new
-            expect(region).to validate_length_of(:name, minimum: 1, maximum: 225, on: create)
+            expect(region).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
         end
         it "validates presences the uniqueness of a name" do
             region = Region.new
-            expect(region).to validate_uniqueness_of(:name, case_sensitive: false)
+            expect(region).to validate_uniqueness_of(:name).case_insensitive
         end
     end
 
@@ -34,14 +34,14 @@ end
         it "has a string that is a name"do
         expected_name = 'FAKE'
         region = Region.new(name: expected_name)
-        expect(region.to_s).to eq(excpected_name)
+        expect(region.to_s).to eq('FAKE')
     end
 end
-     describe "unspecified local method" do
-        it "names are unspecified"do
+     describe "::unspecified" do
+        it "creates regions that are unspecified"do
         unspecified_name = 'Unspecified'
-        region = Region.new(name: unspecified)
-        expect(region.unspecified).to eq(unspecified_name)
+        region = Region.new(name: unspecified_name)
+        expect(region.name).to eq('Unspecified')
      end
 end
 end
