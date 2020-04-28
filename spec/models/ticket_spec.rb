@@ -58,6 +58,18 @@ RSpec.describe Ticket, type: :model do
     #     ticket = Ticket.new
     #     get :resource_category_id
     #     expect(response.status).to equal("index_tickets_on_resource_category_id").for(:name)
-    #   end   
+    #   end
+    
+    it "has open tickets" do
+        ticket = Ticket.new
+
+        open_ticket = Ticket.create(closed:false)
+        
+        closed_ticket = Ticket.create(closed:true)
+
+        open_tickets = Ticket.open
+        expect(open_tickets).to include(open_ticket)
+        expect(open_ticekts.not_to include(closed_ticket)
+    end
    end      
 end
