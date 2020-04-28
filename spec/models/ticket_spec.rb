@@ -26,6 +26,11 @@ RSpec.describe Ticket, type: :model do
     it "validates presence of resource category" do
         ticket = Ticket.new
             expect(ticket).to validate_presence_of( :resource_category_id )
-       end      
+       end
+    it "validates presences the length of a name" do
+            ticket = Ticket.new
+            expect(ticket).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
+        end
+         
    end      
 end
