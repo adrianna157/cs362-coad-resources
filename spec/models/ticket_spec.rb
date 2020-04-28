@@ -35,10 +35,16 @@ RSpec.describe Ticket, type: :model do
             ticket = Ticket.new
             expect(ticket).to validate_length_of(:description).is_at_most(1020).on(:create)
         end
-    it "validates" do
-            ticket = Ticket.new
-            expect(ticket).to validates_plausible_phone :phone_number, presence: true
-        end     
+    # it "validates" do
+    #         ticket = Ticket.new
+    #         expect(ticket).to validates(:phone).
+    #     end
+    it "has attributes" do
+        ticket = Ticket.new
+        expect(ticket).to respond_to(:name, :description, :phone, :organization_id, :created_at,
+        :updated_at, :closed_at, :closed, :closed_at, :resource_category_id, :region_id)
+    end
+    
          
    end      
 end
