@@ -44,7 +44,20 @@ RSpec.describe Ticket, type: :model do
         expect(ticket).to respond_to(:name, :description, :phone, :organization_id, :created_at,
         :updated_at, :closed_at, :closed, :closed_at, :resource_category_id, :region_id)
     end
-    
-         
+    # it "should allow values"
+    #     ticket = Ticket.new
+    #     get :organization_id
+    #     expect(response.status).to equal("index_tickets_on_organization_id").for(:name)
+    #   end
+    # it "should allow values"
+    #     ticket = Ticket.new
+    #     get :region_id
+    #     expect(response.status).to equal("index_tickets_on_region_id").for(:name)
+    #   end
+    # it "should allow values"
+    #     ticket = Ticket.new
+    #     get :resource_category_id
+    #     expect(response.status).to equal("index_tickets_on_resource_category_id").for(:name)
+    #   end   
    end      
 end
