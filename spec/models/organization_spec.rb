@@ -86,9 +86,11 @@ RSpec.describe Organization, type: :model do
             organization = Organization.new(name: expected_name)
             expect(organization.to_s).to eq(expected_name)
         end
-
         it 'has an approve method' do
             expect(organization.approve).to be_truthy
+        end
+        it 'has a reject method' do
+            expect(organization.reject).to be_truthy
         end
     end 
 end
