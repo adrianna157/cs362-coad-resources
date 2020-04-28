@@ -81,10 +81,14 @@ RSpec.describe Organization, type: :model do
     end
 
     describe 'method' do
-        it "has a string that is a name" do
+        it 'has a string that is a name' do
             expected_name = 'FAKE'
             organization = Organization.new(name: expected_name)
             expect(organization.to_s).to eq(expected_name)
+        end
+
+        it 'has an approve method' do
+            expect(organization.approve).to be_truthy
         end
     end 
 end
