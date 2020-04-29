@@ -1,6 +1,12 @@
+
 require 'rails_helper'
 
+
 RSpec.describe Ticket, type: :model do
+
+  let(:closed_ticket){create(:closed_ticket)}
+  let(:open_ticket){create(:ticket)} 
+
 
   describe "relationships" do
     it "belongs to" do
@@ -44,32 +50,14 @@ RSpec.describe Ticket, type: :model do
         expect(ticket).to respond_to(:name, :description, :phone, :organization_id, :created_at,
         :updated_at, :closed_at, :closed, :closed_at, :resource_category_id, :region_id)
     end
-    # it "should allow values"
-    #     ticket = Ticket.new
-    #     get :organization_id
-    #     expect(response.status).to equal("index_tickets_on_organization_id").for(:name)
-    #   end
-    # it "should allow values"
-    #     ticket = Ticket.new
-    #     get :region_id
-    #     expect(response.status).to equal("index_tickets_on_region_id").for(:name)
-    #   end
-    # it "should allow values"
-    #     ticket = Ticket.new
-    #     get :resource_category_id
-    #     expect(response.status).to equal("index_tickets_on_resource_category_id").for(:name)
-    #   end
-    
-    it "has open tickets" do
-        ticket = Ticket.new
-
-        open_ticket = Ticket.create(closed:false)
-        
-        closed_ticket = Ticket.create(closed:true)
-
-        open_tickets = Ticket.open
-        expect(open_tickets).to include(open_ticket)
-        expect(open_ticekts.not_to include(closed_ticket)
+end
+   
+    describe "#open" do
+        it "retrieves only non-closed tickets without an organization" do
+            open_tickets = Ticket.open
+            expect(open_tickets).to include(open_ticket)
+            # expect(open)tickets.not_to include(closed_ticket)
+        end
     end
    end      
-end
+

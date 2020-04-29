@@ -25,7 +25,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~>3.4'
 end
 
 group :development do
@@ -42,7 +42,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers', '~> 3.1', require: false
   gem 'simplecov', require: false
   gem 'webdrivers', '~> 3.0'
   gem 'phonelib'
