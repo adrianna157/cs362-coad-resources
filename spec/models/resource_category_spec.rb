@@ -38,11 +38,23 @@ RSpec.describe ResourceCategory, type: :model do
                 expect{ResourceCategory.unspecified}.to change{ResourceCategory.count}.by(1)
             end
         end
-        describe '#activate' do
-            it 'activates resource category' do
-                expect(resource_category.active).to be_truthy
+        describe "#to_s" do
+            it 'has a string that is a name' do
+                expected_name = 'FAKE'
+                resource_category = ResourceCategory.new(name: expected_name)
+                expect(resource_category.to_s).to eq(expected_name)
             end
         end
+        # describe '#activate' do
+        #     it 'activates resource category' do
+        #         expect(resource_category.activate).to be_truthy
+        #     end
+        # end
+        # describe '#deactivate' do
+        #     it 'deactivates resource category' do
+        #         expect(resource_category.active).to be_truthy
+        #     end
+        # end
     end
 
 end
