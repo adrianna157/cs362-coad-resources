@@ -50,11 +50,11 @@ RSpec.describe ResourceCategory, type: :model do
                 expect(resource_category.active).to be_truthy
             end
         end
-        # describe '#deactivate' do
-        #     it 'deactivates resource category' do
-        #         expect(resource_category.active).to be_truthy
-        #     end
-        # end
+        describe '#deactivate' do
+            it 'deactivates resource category' do
+                expect(resource_category.deactivate).to be_falsey
+            end
+        end
     end
 
 end
