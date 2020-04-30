@@ -45,11 +45,11 @@ RSpec.describe ResourceCategory, type: :model do
                 expect(resource_category.to_s).to eq(expected_name)
             end
         end
-        # describe '#activate' do
-        #     it 'activates resource category' do
-        #         expect(resource_category.activate).to be_truthy
-        #     end
-        # end
+        describe '#activate' do
+            it 'activates resource category' do
+                expect(resource_category.active).to be_truthy
+            end
+        end
         # describe '#deactivate' do
         #     it 'deactivates resource category' do
         #         expect(resource_category.active).to be_truthy
