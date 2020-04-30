@@ -1,14 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Region, type: :model do
- let(:region){Region.new(name: 'FAKE')}
- let(:region) {FactoryBot.build(:region)}
    describe "name"do 
-    it "has a name" do
-        region = Region.new
-        expect(region).to respond_to(:name)
+        it "has a name" do
+            region = Region.new
+            expect(region).to respond_to(:name)
+        end
     end
-end
 
     describe "relationships"do
         it "has many tickets" do
@@ -34,18 +32,18 @@ end
 
     describe "to_s method" do
         it "has a string that is a name"do
-        expected_name = 'FAKE'
-        region = Region.new(name: expected_name)
-        expect(region.to_s).to eq('FAKE')
+            expected_name = 'FAKE'
+            region = Region.new(name: expected_name)
+            expect(region.to_s).to eq('FAKE')
+        end
     end
-end
      describe "::unspecified" do
         it "creates regions that are unspecified"do
-        unspecified_name = 'Unspecified'
-        region = Region.new(name: unspecified_name)
-        expect(region.name).to eq('Unspecified')
-     end
-end
+            unspecified_name = 'Unspecified'
+            region = Region.new(name: unspecified_name)
+            expect(region.name).to eq('Unspecified')
+        end
+    end
 end
 
 

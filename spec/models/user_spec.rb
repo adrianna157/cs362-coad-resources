@@ -45,8 +45,11 @@ RSpec.describe User, type: :model do
                 expect(user.to_s).to eq(expected_email)
             end
         end
-        # describe "#set_default_role" do
-        # end
+        describe "#set_default_role" do
+            it 'has a set default role method' do
+                expect(user.set_default_role).to be_truthy
+            end
+        end
     end 
 
 end
