@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
 
     describe 'method' do
         describe "#to_s" do
-            it 'has a string that is a name' do
+            it 'has a string that is an email' do
                 expected_email = 'fake@example.com'
                 user = User.new(email: expected_email)
                 expect(user.to_s).to eq(expected_email)

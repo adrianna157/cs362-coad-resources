@@ -37,7 +37,6 @@ RSpec.describe Ticket, type: :model do
     end
 
     describe 'methods' do
-    
         describe "#to_s" do
             it 'has a string that is a ticket' do
                 expected_ticket_id = '1234'
@@ -57,7 +56,6 @@ RSpec.describe Ticket, type: :model do
 
             end
         end
-
     end
 
 end      
