@@ -19,6 +19,13 @@ RSpec.describe User, type: :model do
         it 'validates presence of email' do
             expect(user).to validate_presence_of(:email)
         end 
+        it "validates presences of email" do
+            expect(user).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
+        end
+        # it "validates presences the uniqueness of a name" do
+        #     region = Region.new
+        #     expect(region).to validate_uniqueness_of(:name).case_insensitive
+        # end
     end
 
     describe 'method' do
