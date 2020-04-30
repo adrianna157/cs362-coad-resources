@@ -19,4 +19,10 @@ RSpec.describe ResourceCategory, type: :model do
         end
     end
 
+    describe 'validations' do
+        it "validates presences of name" do
+            expect(resource_category).to validate_presence_of(:name)
+        end
+    end
+
 end
