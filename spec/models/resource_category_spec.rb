@@ -38,11 +38,11 @@ RSpec.describe ResourceCategory, type: :model do
                 expect{ResourceCategory.unspecified}.to change{ResourceCategory.count}.by(1)
             end
         end
-        # describe '#activate' do
-        #     it 'activates resource category' do
-        #         expect(resource_category.activate).to be_truthy
-        #     end
-        # end
+        describe '#activate' do
+            it 'activates resource category' do
+                expect(resource_category.active).to be_truthy
+            end
+        end
     end
 
 end
