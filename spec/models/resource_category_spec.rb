@@ -9,4 +9,11 @@ RSpec.describe ResourceCategory, type: :model do
             expect(resource_category).to respond_to(:name)
         end
     end
+        
+    describe 'relationship' do
+        it 'has and belongs to many organizations' do
+            expect(resource_category).to have_and_belong_to_many(:organizations)
+        end
+    end
+
 end

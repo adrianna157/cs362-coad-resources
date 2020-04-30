@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
             expect(user).to respond_to(:email)
         end
     end
+    
     describe 'relationship' do
         it 'belongs to an organization' do
             expect(user).to belong_to(:organization)
