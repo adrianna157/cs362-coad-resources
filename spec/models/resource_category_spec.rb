@@ -33,13 +33,16 @@ RSpec.describe ResourceCategory, type: :model do
 
     describe 'methods' do
         describe '::unspecified' do
-            it "creates resource categories that are unspecified"do
-            unspecified_name = 'Unspecified'
-            resource_category = ResourceCategory.new(name: unspecified_name)
-            expect(resource_category.name).to eq('Unspecified')
+            it "creates resource categories that are unspecified" do
+                expect(ResourceCategory.where(name: 'Unspecified')).to be_empty
+                expect{ResourceCategory.unspecified}.to change{ResourceCategory.count}.by(1)
             end
         end
-
+        # describe '#activate' do
+        #     it 'activates resource category' do
+        #         expect(resource_category.activate).to be_truthy
+        #     end
+        # end
     end
 
 end
