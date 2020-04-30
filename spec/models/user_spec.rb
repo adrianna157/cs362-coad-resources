@@ -14,4 +14,11 @@ RSpec.describe User, type: :model do
             expect(user).to belong_to(:organization)
         end
     end
+    describe 'method' do
+        it 'has a string that is a name' do
+            expected_email = 'fake@example.com'
+            user = User.new(email: expected_email)
+            expect(user.to_s).to eq(expected_email)
+        end
+    end 
 end
