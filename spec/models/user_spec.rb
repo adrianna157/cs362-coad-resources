@@ -19,12 +19,17 @@ RSpec.describe User, type: :model do
         it 'validates presence of email' do
             expect(user).to validate_presence_of(:email)
         end 
-        it "validates presences of email" do
+        it "validates length of email" do
             expect(user).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
         end
+        it 'validates format of email' do
+            expect(user).to allow_value('valid@example.com').for(:email)
+            expect(user).to_not allow_value('invalid.com', '@invalid.com', 'INVALID', 'invalid@fake').for(:email)
+        end 
         it "validates uniqueness of email" do
             expect(user).to validate_uniqueness_of(:email).case_insensitive
         end
+
     end
 
     describe 'method' do
