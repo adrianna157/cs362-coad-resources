@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Region, type: :model do
+ let(:region){Region.new(name: 'FAKE')}
+ let(:region) {FactoryBot.build(:region)}
    describe "name"do 
     it "has a name" do
         region = Region.new
