@@ -55,6 +55,11 @@ RSpec.describe ResourceCategory, type: :model do
                 expect(resource_category.deactivate).to be_falsey
             end
         end
+        describe '#inactive?' do
+            it 'determines if the resource category is inactive or active' do
+                expect(resource_category.inactive?).to be_falsey
+            end
+        end
     end
 
 end
