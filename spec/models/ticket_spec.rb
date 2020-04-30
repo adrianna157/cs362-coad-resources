@@ -38,18 +38,18 @@ RSpec.describe Ticket, type: :model do
 
     describe 'methods' do
     
-        describe "#open?" do
-            it "retrieves only non-closed tickets without an organization" do
-                open_tickets = Ticket.open
-                expect(open_tickets).to include(open_ticket)
-                # expect(open)tickets.not_to include(closed_ticket)
-            end
-        end
         describe "#to_s" do
             it 'has a string that is a ticket' do
                 expected_ticket_id = '1234'
                 ticket = Ticket.new(id: expected_ticket_id)
                 expect(ticket.to_s).to eq('Ticket ' + expected_ticket_id)
+            end
+        end
+        describe "#open?" do
+            it "retrieves only non-closed tickets without an organization" do
+                open_tickets = Ticket.open
+                expect(open_tickets).to include(open_ticket)
+                # expect(open)tickets.not_to include(closed_ticket)
             end
         end
         describe "#captured?" do
