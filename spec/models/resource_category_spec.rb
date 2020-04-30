@@ -31,4 +31,15 @@ RSpec.describe ResourceCategory, type: :model do
         end
     end
 
+    describe 'methods' do
+        describe '::unspecified' do
+            it "creates resource categories that are unspecified"do
+            unspecified_name = 'Unspecified'
+            resource_category = ResourceCategory.new(name: unspecified_name)
+            expect(resource_category.name).to eq('Unspecified')
+            end
+        end
+
+    end
+
 end
