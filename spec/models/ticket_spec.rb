@@ -52,9 +52,14 @@ RSpec.describe Ticket, type: :model do
             end
         end
         describe "#captured?" do
-            it 'checks to see if an organization is present' do
-
+            it 'ticket is not captured by default' do
+                expect(ticket).to_not be_captured
             end
+            it 'ticket is captured if it has an organization' do
+                ticket.organization = Organization.new
+                expect(ticket).to be_captured
+            end
+
         end
     end
 
