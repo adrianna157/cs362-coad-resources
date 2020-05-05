@@ -1,5 +1,5 @@
 FactoryBot.define do
-
+  #test
     factory :user do
         email {'testertesterson@gmail.com'}
         password {'fake_password'}
