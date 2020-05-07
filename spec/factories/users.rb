@@ -1,7 +1,11 @@
 FactoryBot.define do
-  #test
+  
   factory :user do
+<<<<<<< HEAD
       email
+=======
+      email 
+>>>>>>> 71b73e3f1ed8809fb429f564795d1b084e960ab6
       password {'fake_password'}
 
       trait :admin do
