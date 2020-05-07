@@ -7,11 +7,3 @@ FactoryBot.define do
     end
   end
 end
-=======
-    name { 'Fake' }
-    trait :unspecified do
-      name { 'Unspecified' }
-    end
-
-  end
-end

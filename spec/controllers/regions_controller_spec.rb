@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe RegionsController, type: :controller do
-    
-  
 
     context 'As a public user' do
         describe '/regions' do
@@ -27,7 +25,5 @@ RSpec.describe RegionsController, type: :controller do
             specify{expect(get(:index)).to be_successful}
         end
     end
-
-   
 
 end
