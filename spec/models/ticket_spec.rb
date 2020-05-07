@@ -53,7 +53,6 @@ RSpec.describe Ticket, type: :model do
             it "retrieves only non-closed tickets without an organization" do
                 open_tickets = Ticket.open
                 expect(open_tickets).to include(open_ticket)
-                # expect(open)tickets.not_to include(closed_ticket)
             end
         end
         describe "#captured?" do

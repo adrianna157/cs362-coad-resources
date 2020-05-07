@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+    let(:normal_user) { build(:organization_member) }
+    let(:admin) { build(:admin) }
     let (:user) { User.new() }
 
     describe 'attributes' do
@@ -52,9 +54,6 @@ RSpec.describe User, type: :model do
             end
         end
     end 
-=======
-  let(:normal_user) { build(:organization_member) }
-  let(:admin) { build(:admin) }
 
   describe 'an example of verifying your factory is sound' do
     it 'is ok when generated from our factory' do
@@ -66,3 +65,5 @@ RSpec.describe User, type: :model do
       expect(second_user).to be_persisted
     end
   end
+
+end
