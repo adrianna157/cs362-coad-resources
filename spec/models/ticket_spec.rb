@@ -66,9 +66,5 @@ RSpec.describe Ticket, type: :model do
 
 end      
 
-  describe 'relationships' do
-    it { should belong_to(:region) }
-  end
-
-end
+ 
 
