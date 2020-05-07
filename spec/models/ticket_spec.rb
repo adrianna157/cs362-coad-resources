@@ -3,6 +3,7 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
 
+
     let(:closed_ticket){create(:closed_ticket)}
     let(:open_ticket){create(:ticket)} 
     let (:ticket) { Ticket.new() }
@@ -64,4 +65,10 @@ RSpec.describe Ticket, type: :model do
     end
 
 end      
+
+  describe 'relationships' do
+    it { should belong_to(:region) }
+  end
+
+end
 
