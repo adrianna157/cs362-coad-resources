@@ -13,6 +13,7 @@ RSpec.describe DashboardController, type: :controller do
         before(:each) {sign_in(user)}
 
         describe 'GET #index' do
+            specify{expect(get(:index)).to be_successful}
         end
     end
 
