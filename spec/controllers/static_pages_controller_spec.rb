@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe ResourceCategoriesController, type: :controller do
+RSpec.describe StaticPagesController, type: :controller do
 
     context 'As a public user' do
         describe '/tickets' do
-            specify { expect(get(:index)).to redirect_to(new_user_session_path) }
+            specify { expect(get(:index)).to be_successful}
         end
     end
 
@@ -13,7 +13,7 @@ RSpec.describe ResourceCategoriesController, type: :controller do
         before(:each) {sign_in(user)}
 
         describe 'GET #index' do
-            specify{expect(get(:index)).to redirect_to(dashboard_path)}
+            specify{expect(get(:index)).to be_successful}
         end
     end
 
