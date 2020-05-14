@@ -72,8 +72,10 @@ RSpec.describe Ticket, type: :model do
             open_tickets = Ticket.open
             closed_tickets = Ticket.closed
             expect(open_tickets).to include(open_ticket)
-            expect(closed_tickets).to include(closed_ticket)
+            expect(open_tickets).to_not include(closed_ticket)
         end
+
+
     end
 
 end      
