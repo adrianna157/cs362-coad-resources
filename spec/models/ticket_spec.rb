@@ -70,9 +70,13 @@ RSpec.describe Ticket, type: :model do
      describe 'scopes' do
         it 'returns open tickets' do
             open_tickets = Ticket.open
-            closed_tickets = Ticket.closed
             expect(open_tickets).to include(open_ticket)
             expect(open_tickets).to_not include(closed_ticket)
+        end
+        it 'returns closed tickets' do
+            closed_tickets = Ticket.closed
+            expect(closed_tickets).to include(closed_ticket)
+            expect(closed_tickets).to_not include(open_ticket)
         end
 
 
