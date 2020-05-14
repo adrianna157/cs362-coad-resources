@@ -45,7 +45,21 @@ RSpec.describe Organization, type: :model do
         end
     end
 
-    # describe 'validation' do
-    #     it 
+    describe 'validation' do
+        it 'validates email' do
+            expect(organization).to validate_presence_of(:email)
+        end 
+        it 'validates length of email' do
+            expect(organization).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
+        end
+        it 'validates name' do
+            expect(organization).to validate_presence_of(:name)
+        end
+        it 'validates length of name' do
+            expect(organization).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
+        end
+        it 'validates phone' do
+            expect(organization).to validate_presence_of(:phone)
+        end
+    end
    
-
