@@ -38,8 +38,6 @@ RSpec.describe Organization, type: :model do
         it 'has and belongs to many resource categories' do
             expect(organization).to have_and_belong_to_many(:resource_categories)
         end
-    end
-
         it 'has and belongs to many resource categories' do
             expect(organization).to have_and_belong_to_many(:resource_categories)
         end
@@ -63,3 +61,4 @@ RSpec.describe Organization, type: :model do
         end
     end
    
+end
