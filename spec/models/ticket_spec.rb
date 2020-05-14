@@ -4,8 +4,8 @@ require 'rails_helper'
 RSpec.describe Ticket, type: :model do
 
 
-    let(:closed_ticket){create(:closed_ticket)}
-    let(:open_ticket){create(:ticket)} 
+    let(:closed_ticket){create(:ticket, :closed_ticket)}
+    let(:open_ticket){create(:ticket, :open_ticket)} 
     let (:ticket) { Ticket.new() }
 
     describe "relationships" do
@@ -64,6 +64,15 @@ RSpec.describe Ticket, type: :model do
                 expect(ticket).to be_captured
             end
 
+        end
+    end
+
+     describe 'scopes' do
+        it 'returns open tickets' do
+            open_tickets = Ticket.open
+            closed_tickets = Ticket.closed
+            expect(open_tickets).to include(open_ticket)
+            expect(closed_tickets).to include(closed_ticket)
         end
     end
 

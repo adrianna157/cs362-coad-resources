@@ -1,9 +1,8 @@
 
-
 FactoryBot.define do
-    factory :organization do
-        email {'testertesterson@gmail.com'}
-        name {'THIS IS A NAME'}
+    factory :organization do |n|
+        sequence(:email) { |n| "testertesterson#{n}@gmail.com" }
+        sequence(:name) { |n| "organization #{n}" }
         phone {'888-888-8888'}
         description {"this is a test organization"}
         liability_insurance{true}

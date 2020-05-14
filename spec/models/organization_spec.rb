@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe Organization, type: :model do
 
     let (:organization) { Organization.new() }
+    # let(:open_ticket) { create(:ticket, :open_ticket) }
+    # let(:closed_ticket) { create(:ticket, :closed_ticket) }
+
 
     describe 'attributes' do
         it 'has an email' do
@@ -60,5 +63,17 @@ RSpec.describe Organization, type: :model do
             expect(organization).to validate_presence_of(:phone)
         end
     end
+
+
+    # describe 'scopes' do
+
+    #     it 'returns open tickets' do
+    #         open_tickets = Ticket.open
+    #         expect(open_tickets).to include(open_ticket)
+    #         expect(open_tickets).to include(closed_ticket)
+    #     end
+
+    # end
+
    
 end
