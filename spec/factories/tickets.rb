@@ -3,12 +3,10 @@ FactoryBot.define do
     name { 'FAKE NAME' }
     description { 'FAKE TICKET DESCRIPTION' }
     phone { '+14242424242' }
-    created_at { nil }
-    updated_at { nil }
     closed { false }
     closed_at { '' }
-    region_id { create(:region).id }
-    resource_category_id { create(:resource_category).id }
+    region
+    resource_category
 
     trait :open_ticket do
       closed{ false }
@@ -16,6 +14,10 @@ FactoryBot.define do
 
     trait :closed_ticket do
       closed{ true }
+    end
+
+    trait :with_organization do
+      organization
     end
 
   end
