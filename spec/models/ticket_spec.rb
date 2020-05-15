@@ -101,6 +101,10 @@ RSpec.describe Ticket, type: :model do
             tickets_region = Ticket.region(ticket.region.id)
             expect(tickets_region).to include(ticket) 
          end 
+        it "returns a tickets resource category" do
+            tickets_resource_category = Ticket.resource_category(ticket.resource_category.id)
+            expect(tickets_resource_category).to include(ticket) 
+         end 
     end
 end
 
