@@ -7,6 +7,7 @@ RSpec.describe Ticket, type: :model do
     let(:closed_ticket){create(:ticket, :closed_ticket)}
     let(:open_ticket){create(:ticket, :open_ticket)} 
     let(:ticket_with_organization){create(:ticket, :open_ticket, :with_organization)}
+    let(:ticket_with_closed_organization){create(:ticket, :closed_ticket, :with_organization)}
     let (:ticket) { Ticket.new() }
 
     describe "relationships" do
@@ -85,8 +86,12 @@ RSpec.describe Ticket, type: :model do
             #expects an open ticket without an organization
             expect(all_organizations_tickets).to_not include(open_ticket)
         end
-
-
+        it "returns a specific organizations ticket" do
+            organization_tickets = Ticket.organization(ticket_with_organization.organization.id)
+            expect(organization_tickets).to include(ticket_with_organization)
+            expect(organization_tickets).to_not include(ticket_with_closed_organization)
+         end
     end
+end
 
-end      
+    
