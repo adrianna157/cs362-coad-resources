@@ -8,7 +8,8 @@ RSpec.describe Ticket, type: :model do
     let(:open_ticket){create(:ticket, :open_ticket)} 
     let(:ticket_with_organization){create(:ticket, :open_ticket, :with_organization)}
     let(:ticket_with_closed_organization){create(:ticket, :closed_ticket, :with_organization)}
-    let (:ticket) { Ticket.new() }
+    let (:ticket) {create(:ticket)}
+   
 
     describe "relationships" do
         it "belongs to a region" do
@@ -96,6 +97,10 @@ RSpec.describe Ticket, type: :model do
             expect(organizations_closed_tickets).to include(ticket_with_closed_organization)
             expect(organizations_closed_tickets).to_not include(ticket_with_organization)
          end
+        it "returns a tickets region" do
+            tickets_region = Ticket.region(ticket.region.id)
+            expect(tickets_region).to include(ticket) 
+         end 
     end
 end
 
