@@ -69,5 +69,12 @@ RSpec.describe ResourceCategory, type: :model do
                 expect(active_resource_categories).to_not include(inactive_resource_category)
             end
         end
+        describe 'scopes' do
+            it 'returns inactive resource category' do
+                inactive_resource_categories = ResourceCategory.inactive
+                expect(inactive_resource_categories).to include(inactive_resource_category)
+                expect(inactive_resource_categories).to_not include(active_resource_category)
+            end
+        end
     end
 end
