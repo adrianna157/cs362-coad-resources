@@ -3,5 +3,12 @@ FactoryBot.define do
         sequence(:name) { |n| "the name #{n}" }
         # name {'THE NAME'}
         organization_ids{create(:organization).id}
+
+        trait :active do
+        active{true}
+        end
+        trait :inactive do
+            active{false}
+        end
     end
 end

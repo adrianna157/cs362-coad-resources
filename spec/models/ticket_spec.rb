@@ -7,7 +7,9 @@ RSpec.describe Ticket, type: :model do
     let(:closed_ticket){create(:ticket, :closed_ticket)}
     let(:open_ticket){create(:ticket, :open_ticket)} 
     let(:ticket_with_organization){create(:ticket, :open_ticket, :with_organization)}
-    let (:ticket) { Ticket.new() }
+    let(:ticket_with_closed_organization){create(:ticket, :closed_ticket, :with_organization)}
+    let (:ticket) {create(:ticket)}
+   
 
     describe "relationships" do
         it "belongs to a region" do
@@ -85,8 +87,25 @@ RSpec.describe Ticket, type: :model do
             #expects an open ticket without an organization
             expect(all_organizations_tickets).to_not include(open_ticket)
         end
-
-
+        it "returns a specific organizations tickets" do
+            organization_tickets = Ticket.organization(ticket_with_organization.organization.id)
+            expect(organization_tickets).to include(ticket_with_organization)
+            expect(organization_tickets).to_not include(ticket_with_closed_organization)
+         end
+        it "returns a specific organizations closed tickets" do
+            organizations_closed_tickets = Ticket.closed_organization(ticket_with_closed_organization.organization.id)
+            expect(organizations_closed_tickets).to include(ticket_with_closed_organization)
+            expect(organizations_closed_tickets).to_not include(ticket_with_organization)
+         end
+        it "returns a tickets region" do
+            tickets_region = Ticket.region(ticket.region.id)
+            expect(tickets_region).to include(ticket) 
+         end 
+        it "returns a tickets resource category" do
+            tickets_resource_category = Ticket.resource_category(ticket.resource_category.id)
+            expect(tickets_resource_category).to include(ticket) 
+         end 
     end
+end
 
-end      
+    

@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ResourceCategory, type: :model do
 
+    let (:active_resource_category) {create(:resource_category, :active)}
+    let (:inactive_resource_category) {create(:resource_category, :inactive)}
     let (:resource_category) { ResourceCategory.new() }
 
     describe 'attributes' do
@@ -60,6 +62,19 @@ RSpec.describe ResourceCategory, type: :model do
                 expect(resource_category.inactive?).to be_falsey
             end
         end
+        describe 'scopes' do
+            it 'returns active resource category' do
+                active_resource_categories = ResourceCategory.active
+                expect(active_resource_categories).to include(active_resource_category)
+                expect(active_resource_categories).to_not include(inactive_resource_category)
+            end
+        end
+        describe 'scopes' do
+            it 'returns inactive resource category' do
+                inactive_resource_categories = ResourceCategory.inactive
+                expect(inactive_resource_categories).to include(inactive_resource_category)
+                expect(inactive_resource_categories).to_not include(active_resource_category)
+            end
+        end
     end
-
 end
