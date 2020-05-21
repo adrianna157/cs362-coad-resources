@@ -5,9 +5,22 @@ RSpec.describe 'Capturing a ticket', type: :feature do
     
     let (:organization_member1) {create(:user, :organization_member)}
    
+    before do
+        organization = create(:organization)
+        organization.status = 'approved'
+        organization.save!
+        organization_member1.organization = organization
+        organization_member1.save!
+    end
+
     it 'displays a submitted ticket' do
         log_in_as(organization_member1)
         visit(dashboard_url)
-       expect(page).to have_field 'tab'
+        click_on 'Tickets'
+        select 'All', from: 'Status'
+        select 'All', from: 'Region'
+        select 'All', from: 'Resource Category'
+        select 'Oldest First', from: 'Sort by'
+        expect(page).to have_content('Captured by')
     end
 end
