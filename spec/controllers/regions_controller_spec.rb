@@ -19,6 +19,7 @@ RSpec.describe RegionsController, type: :controller do
 
     context 'As an admin user' do
         let(:admin_user) {create(:user, :admin)}
+       
         before(:each) {sign_in(admin_user)}
         
         describe 'GET #index' do
@@ -26,7 +27,7 @@ RSpec.describe RegionsController, type: :controller do
         end
 
         describe 'GET #show' do
-            region = create(:region)
+             let(:region) {create(:region)}
             specify{expect(get(:show), params: {id: region.id}).to redirect_to(new_user_session_path)}
         end
 

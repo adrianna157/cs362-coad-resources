@@ -46,8 +46,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers', '~> 3.0'
   gem 'phonelib'
-  gem 'shoulda-matchers', '~> 3.1', require: false
-  # gem 'shoulda-matchers', '~> 4.3.0'
+  gem 'shoulda-matchers', '~> 4.3.0'
   
 
 end
