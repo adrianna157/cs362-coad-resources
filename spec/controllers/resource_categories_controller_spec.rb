@@ -33,8 +33,14 @@ RSpec.describe ResourceCategoriesController, type: :controller do
         end
 
         describe 'GET #new' do
-            it "gets show successfully" do
+            it "gets new successfully" do
                 expect(get(:new, params: { id: resource_categories_admin.id })).to be_successful
+            end
+        end
+
+         describe 'GET #edit' do
+            it "gets edit successfully" do
+                expect(get(:edit, params: { id: resource_categories_admin.id })).to be_successful
             end
         end
 
