@@ -53,20 +53,22 @@ RSpec.describe RegionsController, type: :controller do
             end
         end
 
-        # describe 'GET #edit' do
-        #     region = create(:region)
-        #     specify{expect(get(:edit), parameters: {id: region.id}).to be_successful}
-        # end
 
-        # describe 'PUT #update' do
-        #     region = create(:region)
-        #     specify{put(:update, parameters: {id: region.id, region: attributes_for(:region)})}.to redirect_to(region_path(regions_path)))
-        # end
+         describe 'PUT #update' do
+             
+            it "gets update successfully" do
+                #byebug
+                expect(put(:update, params: {id: region.id, region: attributes_for(:region)})).to redirect_to(region)
+            end
+        end
 
         # describe 'DELETE #destroy' do
         #     region = create(:region)
         #     specify{expect(get(:destroy), parameters: {id: region.id}).to be_successful}
         # end
+
+     
+        
         
     end
 
