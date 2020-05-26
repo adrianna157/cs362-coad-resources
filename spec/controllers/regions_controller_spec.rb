@@ -43,10 +43,6 @@ RSpec.describe RegionsController, type: :controller do
             specify{expect(get(:index)).to be_successful}
         end
 
-        # describe 'POST #create' do
-        #     specify{post(:create, parameters: {region: {name: 'FAKE'}}).to redirect_to(regions_path)}
-        # end
-
          describe 'POST #edit' do
             it "gets edit successfully" do
                 expect(get(:edit, params: { id: region.id })).to be_successful
@@ -62,10 +58,7 @@ RSpec.describe RegionsController, type: :controller do
             end
         end
 
-        # describe 'DELETE #destroy' do
-        #     region = create(:region)
-        #     specify{expect(get(:destroy), parameters: {id: region.id}).to be_successful}
-        # end
+     
         describe 'DELETE #destroy' do
              
             it "deletes successfully" do

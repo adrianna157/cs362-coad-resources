@@ -19,10 +19,17 @@ RSpec.describe ResourceCategoriesController, type: :controller do
 
     context 'As an admin' do
         let(:admin_user) {create(:user, :admin)}
+        let(:resource_categories_admin) {create(:resource_category)}
         before(:each) {sign_in(admin_user)}
         
         describe 'GET #index' do
             specify{expect(get(:index)).to be_successful}
+        end
+
+         describe 'GET #show' do
+            it "gets show successfully" do
+                expect(get(:show, params: { id: resource_categories_admin.id })).to be_successful
+            end
         end
     end
 
