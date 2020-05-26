@@ -20,6 +20,8 @@ RSpec.describe RegionsController, type: :controller do
     context 'As an admin user' do
         let(:admin_user) {create(:user, :admin)}
         let(:ticket_with_region) {create(:ticket, :organization)}
+        let(:region){create(:region)}
+       
         #let(:region) {create(:region, :ticket)}
         before(:each) {sign_in(admin_user)}
         
@@ -28,11 +30,9 @@ RSpec.describe RegionsController, type: :controller do
         end
 
         describe 'GET #show' do
-            region = Region.new
-            #specify{expect(get(:show)).to be_successful}
-            #specify{expect(get(:show)).to include(:tickets)}
-            specify{expect(get(:show), params: {id: region.id}).to redirect_to(region_path)}
-            #specify{expect(get(:show)).to redirect_to(region)}
+            it "gets show successfully" do
+                expect(get(:show, params: { id: region.id })).to be_successful
+            end
         end
 
         describe 'GET #new' do

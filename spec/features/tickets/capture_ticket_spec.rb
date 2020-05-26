@@ -19,7 +19,7 @@ RSpec.describe 'Capturing a ticket', type: :feature do
         log_in_as(organization_member1)
         visit(dashboard_url)
         click_on 'Tickets'
-        expect(page).to have_content("Tickets\nStatus: AllOpen My Captured My Closed Region: AllFAKE 1 Resource Category: Allthe name 1 Sort by: Oldest First Newest First\n")
+        expect(page).to have_content("My Organization Edit Organization\nTickets\nStatus: AllOpen My Captured My Closed Region:")
         expect(page).not_to be_nil
     end
 end
