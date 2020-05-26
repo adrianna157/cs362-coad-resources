@@ -38,6 +38,12 @@ RSpec.describe ResourceCategoriesController, type: :controller do
             end
         end
 
+        describe 'POST #create' do
+            it "gets show successfully" do
+                expect(post(:create, params: { id: resource_categories_admin.id, resource_category: attributes_for(:resource_category) })).to redirect_to(resource_categories_path)
+            end
+        end
+
          describe 'GET #edit' do
             it "gets edit successfully" do
                 expect(get(:edit, params: { id: resource_categories_admin.id })).to be_successful
