@@ -33,10 +33,16 @@ RSpec.describe TicketsController, type: :controller do
         end
 
         describe 'POST #capture' do
-            it "gets show successfully" do
+            it "post capture successfully" do
                 expect(post(:capture, params: { id: ticket.id})).to redirect_to(dashboard_path)
             end
         end
+
+        describe 'POST #release' do
+            it "post release successfully" do
+                expect(post(:release, params: { id: ticket.id})).to redirect_to(dashboard_path)
+            end
+        end  
 
     end
 
