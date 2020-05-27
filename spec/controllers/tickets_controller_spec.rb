@@ -11,9 +11,16 @@ RSpec.describe TicketsController, type: :controller do
     context 'As an organization user' do
         let(:user) {create(:user)}
         before(:each) {sign_in(user)}
+        let(:ticket) {create(:ticket)}
 
         describe 'GET #new' do
             specify{ expect(get(:new)).to be_successful }
+        end
+
+        describe 'POST #release as an organization user' do
+            it "post release successfully" do
+                expect(post(:release, params: { id: ticket.id})).to redirect_to(dashboard_path)
+            end
         end
     end
 
