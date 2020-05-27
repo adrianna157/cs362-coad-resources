@@ -56,15 +56,21 @@ RSpec.describe ResourceCategoriesController, type: :controller do
             end
         end
 
-         describe 'PATCH #update' do
+         describe 'PATCH #activate' do
             it "patch ativate successfully" do
                 expect(get(:activate, params: { id: resource_category.id, resource_category: attributes_for(:resource_category)})).to redirect_to(resource_category_path(resource_category))
             end
         end
 
-        describe 'PATCH #update' do
+        describe 'PATCH #deactivate' do
             it "patch ativate successfully" do
                 expect(get(:deactivate, params: { id: resource_category.id, resource_category: attributes_for(:resource_category)})).to redirect_to(resource_category_path(resource_category))
+            end
+        end
+
+        describe 'PATCH #destroy' do
+            it "destroy successfully" do
+                expect(delete(:destroy, params: { id: resource_category.id, resource_category: attributes_for(:resource_category)})).to redirect_to(resource_categories_path)
             end
         end
 
