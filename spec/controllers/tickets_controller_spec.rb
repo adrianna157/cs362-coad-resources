@@ -19,11 +19,19 @@ RSpec.describe TicketsController, type: :controller do
 
     context 'As an admin' do
         let(:admin_user) {create(:user, :admin)}
+        let(:ticket) {create(:ticket)}
         before(:each) {sign_in(admin_user)}
         
         describe 'GET #new' do
             specify{ expect(get(:new)).to be_successful }
         end
+
+        describe 'GET #show' do
+            it "gets show successfully" do
+                expect(get(:show, params: { id: ticket.id })).to be_successful
+            end
+        end
+
     end
 
 end
