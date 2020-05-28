@@ -63,11 +63,10 @@ RSpec.describe TicketsController, type: :controller do
             end
         end 
 
-         # describe 'DELETE #destory' do
-        #     it "delete destroy successfully" do
-        #         expect(delete(:destroy, params: { id: ticket.id})).to redirect_to(dashboard_path)
-        #     end
-        # end 
-
+         describe 'DELETE #destory' do
+            it "delete destroy successfully" do
+                expect(delete(:destroy, params: { id: ticket.id})).to redirect_to("\/dashboard#tickets")
+            end
+        end 
     end
 end
