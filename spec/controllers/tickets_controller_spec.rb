@@ -49,7 +49,19 @@ RSpec.describe TicketsController, type: :controller do
             it "post release successfully" do
                 expect(post(:release, params: { id: ticket.id})).to redirect_to(dashboard_path)
             end
-        end  
+        end 
+         
+        describe 'PATCH #close ' do
+            it "patch close successfully" do
+                expect(patch(:close, params: { id: ticket.id})).to redirect_to("\/dashboard#tickets:open")
+            end
+        end 
+
+         # describe 'DELETE #destory' do
+        #     it "delete destroy successfully" do
+        #         expect(delete(:destroy, params: { id: ticket.id})).to redirect_to(dashboard_path)
+        #     end
+        # end 
 
     end
 

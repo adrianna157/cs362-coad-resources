@@ -1,5 +1,5 @@
 require 'rails_helper'
-require '/Users/adriannaguevarra/Desktop/Projects/SoftwareEngineeringII/cs362-coad-resources/spec/support/user_helper.rb'
+require '/Users/lauryn/Documents/CS362/cs362-coad-resources/spec/support/user_helper.rb'
 
 RSpec.describe 'Capturing a ticket', type: :feature do
     
