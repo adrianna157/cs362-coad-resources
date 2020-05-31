@@ -22,6 +22,12 @@ RSpec.describe TicketsController, type: :controller do
                 expect(post(:release, params: { id: ticket.id})).to redirect_to(dashboard_path)
             end
         end
+
+        describe 'PATCH #close ' do
+            it "patch close successfully" do
+                expect(patch(:close, params: { id: ticket.id})).to redirect_to(dashboard_path)
+            end
+        end 
     end
 
     context 'As an admin' do
@@ -64,5 +70,4 @@ RSpec.describe TicketsController, type: :controller do
         end 
 
     end
-
 end

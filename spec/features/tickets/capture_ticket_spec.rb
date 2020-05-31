@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe 'Capturing a ticket', type: :feature do
     
     let (:organization_member1) {create(:user, :organization_member)}
