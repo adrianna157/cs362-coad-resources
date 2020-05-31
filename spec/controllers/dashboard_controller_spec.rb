@@ -15,6 +15,8 @@ RSpec.describe DashboardController, type: :controller do
         describe 'GET #index' do
             specify{expect(get(:index)).to be_successful}
         end
+
+        
     end
 
     context 'As an admin' do
