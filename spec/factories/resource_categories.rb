@@ -5,7 +5,8 @@ FactoryBot.define do
         organization_ids{create(:organization).id}
 
         trait :active do
-        active{true}
+            name{'Fake Name'}    
+            active{true}
         end
         trait :inactive do
             active{false}

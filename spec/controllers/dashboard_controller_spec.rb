@@ -12,13 +12,13 @@ RSpec.describe DashboardController, type: :controller do
         before(:each) {sign_in(user)}
         let(:ticket_with_region) {create(:ticket, :organization)}
 
-        # describe 'GET #index' do
-        #     specify{expect(get(:index)).to be_successful}
-        # end
-
-        describe 'GET #status options' do
-            specify{expect(get(:status_options, params: { status: ticket.status })).to be_successful}
+        describe 'GET #index' do
+            specify{expect(get(:index)).to be_successful}
         end
+
+        # describe 'GET #status options' do
+        #     specify{expect(get(:status_options, params: { status: ticket.status })).to be_successful}
+        # end
 
     end
 
