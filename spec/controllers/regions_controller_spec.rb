@@ -49,27 +49,19 @@ RSpec.describe RegionsController, type: :controller do
             end
         end
 
-
          describe 'PUT #update' do
-             
             it "puts update successfully" do
                 #byebug
                 expect(put(:update, params: {id: region.id, region: attributes_for(:region)})).to redirect_to(region)
             end
         end
-
      
         describe 'DELETE #destroy' do
-             
             it "deletes successfully" do
                 #byebug
                 expect(delete(:destroy, params: {id: region.id, region: attributes_for(:region)})).to redirect_to(regions_path)
             end
         end
-
-     
-        
-        
     end
 
 end
