@@ -1,5 +1,4 @@
 require 'rails_helper'
-#this is a test  commit for this file for the 3rd time
 
 RSpec.describe DashboardController, type: :controller do
     context 'As a public user' do
@@ -11,12 +10,15 @@ RSpec.describe DashboardController, type: :controller do
     context 'As an organization user' do
         let(:user) {create(:user)}
         before(:each) {sign_in(user)}
+        let(:ticket_with_region) {create(:ticket, :organization)}
 
         describe 'GET #index' do
             specify{expect(get(:index)).to be_successful}
         end
 
-        
+        describe 'GET #status options' do
+            specify{expect(get(:status_options, params: { status: ticket.status })).to be_successful}
+        end
     end
 
     context 'As an admin' do
