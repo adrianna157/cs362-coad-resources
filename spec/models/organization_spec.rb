@@ -5,14 +5,14 @@ RSpec.describe Organization, type: :model do
     let (:organization) { Organization.new() }
 
     describe 'attributes' do
+        it 'has an email' do
+            expect(organization).to respond_to(:email)
+        end
         it 'has a name' do
             expect(organization).to respond_to(:name)
         end
         it 'has a phone' do
             expect(organization).to respond_to(:phone)
-        end
-        it 'has a email' do
-            expect(organization).to respond_to(:email)
         end
         it 'has a status' do
             expect(organization).to respond_to(:status)
@@ -32,17 +32,32 @@ RSpec.describe Organization, type: :model do
         it 'has many tickets' do
             expect(organization).to have_many(:tickets)
         end
-
         it 'has many users' do
             expect(organization).to have_many(:users)
         end
-
+        it 'has and belongs to many resource categories' do
+            expect(organization).to have_and_belong_to_many(:resource_categories)
+        end
         it 'has and belongs to many resource categories' do
             expect(organization).to have_and_belong_to_many(:resource_categories)
         end
     end
 
-    # describe 'validation' do
-    #     it 
-    # end
+    describe 'validation' do
+        it 'validates email' do
+            expect(organization).to validate_presence_of(:email)
+        end 
+        it 'validates length of email' do
+            expect(organization).to validate_length_of(:email).is_at_least(1).is_at_most(255).on(:create)
+        end
+        it 'validates name' do
+            expect(organization).to validate_presence_of(:name)
+        end
+        it 'validates length of name' do
+            expect(organization).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
+        end
+        it 'validates phone' do
+            expect(organization).to validate_presence_of(:phone)
+        end
+    end
 end
