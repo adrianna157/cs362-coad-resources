@@ -19,6 +19,6 @@ RSpec.describe 'Capturing a ticket', type: :feature do
         visit(dashboard_url)
         click_on 'Tickets'
         expect(page).to have_content("My Organization Edit Organization\nTickets\nStatus: AllOpen My Captured My Closed Region:")
-        expect(page).not_to be_nil
+       
     end
 end
