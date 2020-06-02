@@ -2,12 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Creating a Ticket', type: :feature do
 
-    
     before :each do
         @region = Region.create(name: 'Fake Region')
         @resource_category = ResourceCategory.create(name: 'Fake Resource Category')
     end
-    #let(:resource_category) = (create(:resource_category, :name))
 
     it 'Displays a successfull ticket submission' do
         visit root_path
@@ -32,5 +30,4 @@ RSpec.describe 'Creating a Ticket', type: :feature do
         click_on 'Send this help request'
         expect(page).to have_content('prohibited')
     end
-
 end
